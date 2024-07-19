@@ -6,6 +6,7 @@ import { useContext } from 'react';
 import { AppContext } from '@/app/page';
 import { login } from '@/app/actions/auth';
 import { useFormState, useFormStatus } from 'react-dom';
+import {Spinner} from "@nextui-org/react";
 
 const LoginForm = () => {
     const [state, action] = useFormState(login, undefined);
@@ -52,7 +53,7 @@ export function LoginButton() {
   
     return (
         <Button aria-disabled={pending} variant="shadow" type='submit' className='bg-black text-white max-w-40'>
-          {pending ? 'Logging in...' : 'Login'}
+          {pending ? <Spinner/> : 'Login'}
         </Button>
     );
   }

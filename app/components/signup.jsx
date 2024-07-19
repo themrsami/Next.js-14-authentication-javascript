@@ -6,6 +6,7 @@ import { useState, useContext } from 'react';
 import { AppContext } from '@/app/page';
 import { signup } from '@/app/actions/auth'
 import { useFormState, useFormStatus } from 'react-dom';
+import {Spinner} from "@nextui-org/react";
 
 
 const SignupForm = () => {
@@ -58,7 +59,7 @@ export function SignupButton() {
 
   return (
     <Button aria-disabled={pending} className='bg-black text-white max-w-40' variant="shadow" type='submit'>
-      {pending ? 'Signing up...' : 'Signup'}
+      {pending ? <Spinner/> : 'Signup'}
     </Button>
   );
 }
